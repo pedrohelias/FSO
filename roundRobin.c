@@ -57,6 +57,12 @@ int ordenaVetor(int *pid, int *valor, int tam){
     return grau; //retorna posicao do vetor que é o menor grau
 }
 
+
+// float cvtTempo(float tempo, int tempoLeva){
+//     float operacao = tempo/1000;
+//     return (tempoLeva/operacao);
+// }
+
 int main(){
     // int tamanho = 0;
     // scanf("%d", &tamanho);
@@ -75,6 +81,7 @@ int main(){
     int vetor2[] = {2, 2, 2, 1, 5}; //valor
     int vetorresultval[4];
     int vetorresultPID[4];
+    int calculo = 0;
 
     for(int j = 0; j<= tamanho -1 ; j++){
         int resultado = ordenaVetor(vetor1, vetor2, tamanho);
@@ -84,6 +91,8 @@ int main(){
         vetor1[resultado] = 9999;
         vetor2[resultado] = 9999;
         printf("PID: %d e VALOR: %d\n", vetorresultPID[j], vetorresultval[j]);
+        calculo = vetorresultval[j] + calculo;
+
 //        printf("%d\n", vetorresultval[j]);
 
     }
@@ -94,5 +103,6 @@ int main(){
     //     printf("PID: %d e VALOR: %d\n", vetorresultPID[k], vetorresultval[k]);
     // }
     //printf("%d", vetor1[resultado]);
+    printf("%d", calculo);
     return 0;
 }
