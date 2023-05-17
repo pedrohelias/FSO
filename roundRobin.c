@@ -5,10 +5,10 @@
 
 
 int ordenaVetor(int *pid, int *valor, int tam){
-    int menorValor = 999;
+    int menorValor = 0;
     int grau = 0;
     for(int i=0; i <= tam -1; i++){
-        if(valor[i] < menorValor){
+        if(valor[i] > menorValor){
             menorValor = valor[i];
             grau = i;
         }
@@ -82,8 +82,8 @@ int main(){
         vetorresultPID[j] = vetorpid[resultado];
         //printf("%d\n", vetorresultPID[0]);
         vetorresultval[j] = vetorValor[resultado];
-        vetorpid[resultado] = 9999;
-        vetorValor[resultado] = 9999;
+        vetorpid[resultado] = 0;
+        vetorValor[resultado] = 0;
         //printf("PID: %d e VALOR: %d\n", vetorresultPID[j], vetorresultval[j]);
         //calculo = vetorresultval[j] + calculo;
 
@@ -109,81 +109,26 @@ int main(){
         
     //fator = cvtTempo(tempo, tempoLeva);
     //printf("%d", fator);
-while(!todosZeros){
-    
-    for(int x = 0; x <= rotacoes-1; x++){
-        //scanf("%d", &pid);
-        //vetorpid[x] = pid;
-        //scanf("%d", &tempoLeva);
-        //vetorValor[x] = tempoLeva;
-
-        if(vetorresultval[x] > 0){
-            vetorresultval[x] = vetorresultval[x] - 0.5;
-            //printf("Agora o valor de pid %d está em %.1f \n", vetorresultPID[x], vetorresultval[x]);
-            somador = tempo + somador; 
-            //printf("%d - ", somador);
-        //ESSE É O JEITO CORRETO MAS A SOMA TA ERRADA
-        //     if(vetorresultval[x] == 0){ //O PROBLEMA TA AQUI AAAAAAAAAAA
-        //         printf("%d (%d)\n", vetorresultPID[x],somador);
-        //     }
-        // }
-        //ESSE È O JEITO COM GAMBIARRA
-
-          if(vetorresultval[x] == 0 && vetorresultval[rotacoes-1] == 0){ //O PROBLEMA TA AQUI AAAAAAAAAAA. 
-                printf("%d (%d)\n", vetorresultPID[x],somador);
-            }else if(vetorresultval[x] == 0){
-                printf("%d (%d)\n", vetorresultPID[x],somador+500);
-
+    while(!todosZeros){
+        
+        for(int x = 0; x <= rotacoes-1; x++){
+            if(vetorresultval[x] > 0){
+                vetorresultval[x] = vetorresultval[x] - 0.5;
+                somador = tempo + somador; 
+                if(vetorresultval[x] == 0){ 
+                    printf("%d (%d)\n", vetorresultPID[x],somador);
+                }
             }
-
-
-        //printf("%d \n",somador);cvtTempo
-
-
-        //recebeOp = operacao(fator, tempo, rotacoes);
-        //somador = recebeOp + somador;
-        //printf("%d (%d)\n", vetorresultPID[x], vetorresultval[x]);
         }
+
+        if(vetorresultval[0] == 0){
+            todosZeros = true;
+        }
+
     }
 
-    //printf("soma final: %d \n",somador);
-
-    // for (int i = 0; i < rotacoes -1; i++) {
-    //     printf("chegou aqui, todos zeros atual: %d ", todosZeros);
-    //     if (vetorresultval[i] == 0) {
-    //         // Se algum elemento for diferente de zero, altera a variável para falso
-    //          // Pode interromper o laço, pois já sabemos que nem todos são zeros
-    //         todosZeros = true;
-    //     }else{
-    //         todosZeros = false;
-    //     }
+     // for(int k = 0; k <= rotacoes -1; k++){
+    //     printf("PID: %d e VALOR: %f\n", vetorresultPID[k], vetorresultval[k]);
     // }
-    //printf("chegou aqui! \n");
-    if(vetorresultval[rotacoes-1] == 0){
-        //printf("agora");
-        todosZeros = true;
-    }else{
-        //printf("ainda naõ \n");
-    }
-
-}
-
-    //printf("%d", vetor1[resultado]);
-    //printf("%d", calculo);
     return 0;
 }
-
-//     for(int i = 1; i <= rotacoes; i++){
-//         scanf("%d", &pid);
-//         scanf("%d", &tempoLeva // for(int k = 0; k <= rotacoes -1; k++){
-    //     printf("PID: %d e VALOR: %d\n", vetorresultPID[k], vetorresultval[k]);
-    // });
-//         fator = cvtTempo(tempo, tempoLeva);
-//         recebeOp = operacao(fator, tempo);
-//         somador = recebeOp + somador;
-//         printf("%d (%d)\n", pid, somador);
-
-        
-
-
-//     }
