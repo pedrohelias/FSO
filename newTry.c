@@ -15,9 +15,14 @@ int main(){
     float somador = 0;
     _Bool tudoZero = false;
 
+    int quantumABS = 0;
 
     scanf("%d", &rotacoes);
     scanf("%f", &quantum);
+
+    
+
+
 
     int vetorpid[100];
     float vetorValor[100];
@@ -27,6 +32,14 @@ int main(){
         vetorpid[i] = pid;
         scanf("%f", &valor);
         vetorValor[i] = valor;
+    }
+
+    if(quantum < 101 ){
+        for(int a = 0; a <= rotacoes - 1; a++){
+            printf("%d (0)\n", vetorpid[a]);
+
+        }
+        return 0;
     }
 
     float fator = (quantum/1000);
@@ -44,11 +57,11 @@ int main(){
                 somador = quantum + somador;
                 if(vetorValor[k] <= 0){
                     float novoValor = vetorValor[k]*1000.0;
-                    printf("%f\n", novoValor);
-                    printf("%f\n", somador);
+                    //printf("%f\n", novoValor);
+                    //printf("%f\n", somador);
                     float op = (somador + novoValor);
-                    printf("%f", op);
-                    printf("%d (%f)\n", vetorpid[k],op);
+                    //printf("%f\n", op);
+                    printf("%d (%.f)\n", vetorpid[k],op);
                     somador = op;
                 }
 
