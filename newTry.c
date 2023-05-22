@@ -34,14 +34,8 @@ int main(){
         vetorValor[i] = valor;
     }
 
-    if(quantum < 101 && quantum > -101 ){
-        for(int a = 0; a <= rotacoes - 1; a++){
-            printf("%d (0)\n", vetorpid[a]);
-            return 0;
-
-        }
-    }else if(quantum <= -101){
-        quantum = (float)abs(quantum);
+    if(quantum < 101 || quantum > 1000){
+        return 0;
     }
 
     float fator = (quantum/1000);
